@@ -1,61 +1,75 @@
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Personagem : MonoBehaviour
 {
-    
-    public string nome = "JogadorN1";
+    public string nome = "Afonso Padilha";
     public float energia = 100f;
-    public float forcaDoPulo = 5f;
-    public float velocidade = 10f;
+    public float forcaAtaque = 15f;
+    public float forcaDoPulo = 7f;
+    public float velocidade = 5f;
     public int numeroDePes = 2;
     public int numeroDeMaos = 2;
-    public float forcaDeAtaque = 20f;
 
     private Rigidbody rb;
-    private bool podePular = false;
 
-    void Start()
+    private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        if (rb == null)
+
+        Debug.Log($"Personagem {nome} criado com {energia} de energia, {numeroDePes} pés e {numeroDeMaos} mãos!");
+    }
+
+    private void Update()
+    {
+        Mover();
+
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            Debug.LogWarning("");
+            Pular();
         }
     }
 
-    void Update()
+    private void Mover()
     {
-        
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
-        Vector3 movimento = new Vector3(moveHorizontal, 0.0f, moveVertical);
-        transform.Translate(movimento * velocidade * Time.deltaTime);
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
 
-        
-        if (Input.GetKeyDown(KeyCode.Space) && podePular && rb != null)
+        Vector3 direcao = new Vector3(horizontal, 0, vertical).normalized;
+        rb.MovePosition(transform.position + direcao * velocidade * Time.deltaTime);
+    }
+
+    private void Pular()
+    {
+        if (rb != null)
         {
             rb.AddForce(Vector3.up * forcaDoPulo, ForceMode.Impulse);
-            podePular = false; 
         }
-
-        
     }
 
-    void OnCollisionEnter(Collision collision)
+    public void Atacar(Inimigo inimigo)
     {
-        if (collision.gameObject.CompareTag("Chao"))
+        if (inimigo != null)
         {
-            podePular = true;
+            int danoCausado = (int)forcaAtaque;
+            Debug.Log($"{nome} atacou {inimigo.name} causando {danoCausado} de dano!");
         }
     }
 
-    void OnCollisionExit(Collision collision)
+    public void SofrerDano(int dano)
     {
-        if (collision.gameObject.CompareTag("Chao"))
+        energia -= dano;
+        Debug.Log($"{nome} sofreu {dano} de dano! Energia restante: {energia}");
+
+        if (energia <= 0)
         {
-            podePular = false;
+            Morrer();
         }
     }
 
+    private void Morrer()
+    {
+        Debug.Log($"{nome} morreu!");
+        Destroy(gameObject);
+    }
+    
 }
- 

@@ -5,7 +5,7 @@ public class Carro
     private string nome;
     private string cor;
     private int numero_de_rodas;
-    protected float preco;
+    private float preco;
 
     public void AtribuirNome(string nome)
     {
@@ -16,7 +16,8 @@ public class Carro
     {
         return this.nome;
     }
-
+   
+   
     public void AtribuirCor(string cor)
     {
         this.cor = cor;
@@ -27,16 +28,16 @@ public class Carro
         return this.cor;
     }
 
-    public void AtribuirNumero_de_rodas(int numero)
+    public void AtribuirNumero_de_rodas(int numero_de_rodas)
     {
-        this.numero_de_rodas = numero;
+        this.numero_de_rodas = numero_de_rodas;
     }
 
     public int Numero_de_rodas()
     {
         return this.numero_de_rodas;
     }
-
+   
     public void AtribuirPreco(float preco)
     {
         this.preco = preco;
@@ -47,8 +48,14 @@ public class Carro
         return this.preco;
     }
 
-    public bool ComparaPreco(Carro carro)
+    public bool ComparePreco( Carro carro )
     {
-        return this.preco > carro.Preco();
+        if (this.preco > carro.Preco())
+        {
+            return true;
+        }
+        return false;
     }
+
+
 }
