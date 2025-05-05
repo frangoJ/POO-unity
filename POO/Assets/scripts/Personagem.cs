@@ -1,75 +1,105 @@
+using System.Collections;
+using UnityEditor;
 using UnityEngine;
 
 public class Personagem : MonoBehaviour
 {
-    public string nome = "Afonso Padilha";
-    public float energia = 100f;
-    public float forcaAtaque = 15f;
-    public float forcaDoPulo = 7f;
-    public float velocidade = 5f;
-    public int numeroDePes = 2;
-    public int numeroDeMaos = 2;
+    [ SerializeField ]
+    private string nome;
+    [ SerializeField ]
+    private int energia;
+    [ SerializeField ]
+    private int forca_ataque;
+    [ SerializeField ]
+    private float forca_do_pulo;
+    [ SerializeField ]
+    private float velocidade;
+    [ SerializeField ]
+    private int numero_de_pes;
+    [ SerializeField ]
+    private int numero_de_maos;
 
-    private Rigidbody rb;
-
-    private void Start()
+    public void AtribuirNome(string nome)
     {
-        rb = GetComponent<Rigidbody>();
-
-        Debug.Log($"Personagem {nome} criado com {energia} de energia, {numeroDePes} pés e {numeroDeMaos} mãos!");
+        this.nome = nome;
     }
 
-    private void Update()
+    public string Nome()
     {
-        Mover();
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Pular();
-        }
+        return this.nome;
     }
 
-    private void Mover()
+    public void AtribuirEnergia(int energia)
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
-
-        Vector3 direcao = new Vector3(horizontal, 0, vertical).normalized;
-        rb.MovePosition(transform.position + direcao * velocidade * Time.deltaTime);
+        this.energia = energia;
     }
 
-    private void Pular()
+    public int Energia()
     {
-        if (rb != null)
-        {
-            rb.AddForce(Vector3.up * forcaDoPulo, ForceMode.Impulse);
-        }
+        return this.energia;
     }
 
-    public void Atacar(Inimigo inimigo)
+    public void AtribuirForca_Ataque(int forca_ataque)
     {
-        if (inimigo != null)
-        {
-            int danoCausado = (int)forcaAtaque;
-            Debug.Log($"{nome} atacou {inimigo.name} causando {danoCausado} de dano!");
-        }
+        this.forca_ataque = forca_ataque;
     }
 
-    public void SofrerDano(int dano)
+    public int Forca_Ataque()
     {
-        energia -= dano;
-        Debug.Log($"{nome} sofreu {dano} de dano! Energia restante: {energia}");
-
-        if (energia <= 0)
-        {
-            Morrer();
-        }
+        return this.forca_ataque;
     }
 
-    private void Morrer()
+    public void AtribuirForca_do_pulo(float forca_do_pulo)
     {
-        Debug.Log($"{nome} morreu!");
-        Destroy(gameObject);
+        this.forca_do_pulo = forca_do_pulo;
     }
-    
+
+    public float Forca_do_pulo()
+    {
+        return this.forca_do_pulo;
+    }
+
+
+    public void AtribuirVelocidade(float velocidade)
+    {
+        this.velocidade = velocidade;
+    }
+
+    public float Velocidade()
+    {
+        return this.velocidade;
+    }
+
+    public void AtribuitNumero_de_pes(int numero_de_pes)
+    {
+        this.numero_de_pes = numero_de_pes;
+    }
+
+    public int Numero_de_pes()
+    {
+        return this.numero_de_pes;
+    }
+
+    public void AtribuitNumero_de_maos(int numero_de_maos)
+    {
+        this.numero_de_maos = numero_de_maos;
+    }
+
+    public int Numero_de_maos()
+    {
+        return this.numero_de_maos;
+    }
+
+
+
+
+
+    void Start()
+    {
+        
+    }
+    void Update()
+    {
+        
+    }
 }

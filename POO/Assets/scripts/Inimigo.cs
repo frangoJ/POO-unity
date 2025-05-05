@@ -1,65 +1,85 @@
 using UnityEngine;
 
-public class Inimigo : MonoBehaviour
+public class Inimigo : Personagem
 {
-    private string armadura;
-    private string arma;
-    private int forcaAtaque = 10; // valor padrão (pode ser mudado depois)
-
-    // Atribui a armadura
-    public void AtribuirArmadura(string novaArmadura)
+    public enum ArmaDoInimigo
     {
-        armadura = novaArmadura;
+        ESPADA, MACHADO, ADAGA
     }
 
-    public string GetArmadura()
+    public enum ArmaduraDoInimigo
     {
-        return armadura;
+        MADEIRA, COURO, BRONZE, ACO
     }
 
-    // Atribui a arma
-    public void AtribuirArma(string novaArma)
+    [ SerializeField ]
+    private ArmaduraDoInimigo armadura;
+    [ SerializeField ]
+    private ArmaDoInimigo arma;
+
+    public void AtribuirArmadura(ArmaduraDoInimigo armadura)
     {
-        arma = novaArma;
+        this.armadura = armadura;
     }
 
-    public string GetArma()
+    public ArmaduraDoInimigo Armadura()
     {
-        return arma;
+        return this.armadura;
     }
 
-    // Define a força de ataque do inimigo
-    public void SetForcaAtaque(int novaForca)
+    public void AtribuirArma(ArmaDoInimigo arma)
     {
-        forcaAtaque = novaForca;
+        this.arma = arma;
     }
 
-    public int GetForcaAtaque()
+    public ArmaDoInimigo Arma()
     {
-        return forcaAtaque;
+        return this.arma;
     }
 
-    // Calcula o dano baseado na arma
+
     public int DanoDoInimigo()
     {
         int dano = 0;
 
-        switch (arma.ToUpper())
+        switch (arma)
         {
-            case "ESPADA":
-                dano = forcaAtaque + 10;
+            case ArmaDoInimigo.ESPADA:
+                dano = Forca_Ataque() + 10;
                 break;
-            case "MACHADO":
-                dano = forcaAtaque + 18;
+            case ArmaDoInimigo.MACHADO:
+                dano = Forca_Ataque() + 18;
                 break;
-            case "ADAGA":
-                dano = forcaAtaque + 5;
-                break;
-            default:
-                dano = forcaAtaque; // caso nenhuma arma seja atribuída
+            case ArmaDoInimigo.ADAGA:
+                dano = Forca_Ataque() + 5;
                 break;
         }
-
+        
+        // dano do ataque com a arma
+        
         return dano;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    void Start()
+    {
+        
+    }
+    void Update()
+    {
+        
     }
 }

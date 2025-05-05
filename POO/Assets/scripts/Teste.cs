@@ -6,6 +6,11 @@ public class Teste : MonoBehaviour
     
     Caminhao caminhao = new Caminhao();
     
+    //=========================
+    
+    Personagem joao = new Personagem();
+    Inimigo ork = new Inimigo();
+    
     void Start()
     {
         fusca.AtribuirNome("Fusca de Pai");
@@ -48,8 +53,35 @@ public class Teste : MonoBehaviour
         }
 
         
+        //============================================
         
+        joao.AtribuirNome("João Roberto II");
+        joao.AtribuirEnergia(10);
+        joao.AtribuirForca_Ataque(12);
+        joao.AtribuirForca_do_pulo(6);
+        joao.AtribuirVelocidade(8);
+        joao.AtribuitNumero_de_pes(2);
+        joao.AtribuitNumero_de_maos(2);
         
+        ork.AtribuirNome("Ork Gob");
+        ork.AtribuirEnergia(23);
+        ork.AtribuirForca_Ataque(15);
+        ork.AtribuirForca_do_pulo(8);
+        ork.AtribuirVelocidade(6);
+        ork.AtribuitNumero_de_pes(2);
+        ork.AtribuitNumero_de_maos(4);
+        ork.AtribuirArma(Inimigo.ArmaDoInimigo.MACHADO);
+        ork.AtribuirArmadura(Inimigo.ArmaduraDoInimigo.COURO);
+
+        if (ork.DanoDoInimigo() >= joao.Energia())
+        {
+            Debug.Log("O " + joao.Nome() + " ficou sem energia");
+        }
+        else
+        {
+            Debug.Log("O " + joao.Nome() + " aonda tem "+ joao.Energia() + "energia");
+        }
+
     }
     void Update()
     {
