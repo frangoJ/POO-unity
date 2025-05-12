@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     
     void Start()
     {
+        speed = gameObject.GetComponent<Personagem>().Velocidade();
         _rigidbody = GetComponent<Rigidbody>();
     }
 
@@ -17,28 +18,28 @@ public class Player : MonoBehaviour
         Vector3 posicao = transform.position;
             
         //esquerda Y-
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKey(KeyCode.A))
         {
             posicao.x = transform.position.x - speed * Time.deltaTime;
         } 
         
         
         //direita Y+
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKey(KeyCode.D))
         {
             posicao.x = transform.position.x + speed * Time.deltaTime;
         } 
         
         
         //cima Z+
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKey(KeyCode.W))
         {
             posicao.z = transform.position.z + speed * Time.deltaTime;
         } 
         
         
         //baixo Z-
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKey(KeyCode.S))
         {
             posicao.z = transform.position.z - speed * Time.deltaTime;
         } 

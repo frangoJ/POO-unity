@@ -164,7 +164,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 64
   m_CollisionDetection: 0
 --- !u!65 &36924237
 BoxCollider:
@@ -270,9 +270,10 @@ GameObject:
   - component: {fileID: 195848043}
   - component: {fileID: 195848042}
   - component: {fileID: 195848041}
+  - component: {fileID: 195848048}
   m_Layer: 0
   m_Name: inimigo
-  m_TagString: Untagged
+  m_TagString: Inimigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -305,7 +306,7 @@ MonoBehaviour:
   energia: 0
   forca_ataque: 0
   forca_do_pulo: 0
-  velocidade: 0
+  velocidade: 10
   numero_de_pes: 0
   numero_de_maos: 0
   armadura: 0
@@ -356,7 +357,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 72
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!23 &195848045
 MeshRenderer:
@@ -426,6 +427,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &195848048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 195848040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8b91fe42b5346c4c9eeaecbba07670d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Raiovisao: 3
 --- !u!1 &306118717
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,7 +458,7 @@ GameObject:
   - component: {fileID: 306118725}
   m_Layer: 0
   m_Name: principal
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -465,7 +479,7 @@ MonoBehaviour:
   energia: 0
   forca_ataque: 0
   forca_do_pulo: 0
-  velocidade: 0
+  velocidade: 10
   numero_de_pes: 0
   numero_de_maos: 0
 --- !u!114 &306118719
@@ -505,7 +519,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 72
+  m_Constraints: 64
   m_CollisionDetection: 0
 --- !u!136 &306118721
 CapsuleCollider:
