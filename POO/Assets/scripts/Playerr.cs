@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Playerr : MonoBehaviour
 {
 
     private Rigidbody _rigidbody;
@@ -48,3 +48,5 @@ public class Player : MonoBehaviour
         
     }
 }
+
+
