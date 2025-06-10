@@ -291,6 +291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9db963e2db5168c4089782d065b6927a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  personagem: {fileID: 0}
 --- !u!114 &195848042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -440,8 +441,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8b91fe42b5346c4c9eeaecbba07670d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Raiovisao: 8
-  distanciaminima: 0
+  ataqueObject: {fileID: 0}
+  _player: {fileID: 0}
+  andando: 0
+  ataque: 0
+  velocidadeDoAtaque: 1
+  ataqueTime: 0
+  _rigidbody: {fileID: 0}
+  velocidade: 0
+  raioDeVisao: 10
+  naVisao: 0
+  _sphereCollider: {fileID: 0}
+  distanciaMinima: 1.5
 --- !u!135 &195848049
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -476,9 +487,6 @@ GameObject:
   - component: {fileID: 306118722}
   - component: {fileID: 306118721}
   - component: {fileID: 306118720}
-  - component: {fileID: 306118719}
-  - component: {fileID: 306118718}
-  - component: {fileID: 306118725}
   m_Layer: 0
   m_Name: principal
   m_TagString: Player
@@ -486,37 +494,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &306118718
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 306118717}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1f817d4bb1ce374aa63840d35a21ba3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nome: 
-  energia: 0
-  forca_ataque: 0
-  forca_do_pulo: 0
-  velocidade: 10
-  numero_de_pes: 0
-  numero_de_maos: 0
---- !u!114 &306118719
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 306118717}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9db963e2db5168c4089782d065b6927a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &306118720
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -636,19 +613,6 @@ Transform:
   - {fileID: 1752359729}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &306118725
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 306118717}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c59e4d79b460b424189b3116a6a20a49, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 100
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -899,6 +863,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c488d7cf0b26df4da52c57d396a1366, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  joao: {fileID: 0}
+  ork: {fileID: 0}
 --- !u!4 &1537660352
 Transform:
   m_ObjectHideFlags: 0
