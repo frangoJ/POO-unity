@@ -12,6 +12,9 @@ public class InimigoManager : MonoBehaviour
     {
         movimentoInimigo = GetComponent<MovimentoInimigo>();
         inimigo = GetComponent<Inimigo>();
+        
+        if (animator == null)
+            animator = GetComponent<Animator>();
     }
     void Update()
     {
