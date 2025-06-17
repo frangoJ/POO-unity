@@ -277,7 +277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97c7c6901c43b7a4f84da9a3124925f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nome: 
+  nome: juao
   energia: 2964
   forca_ataque: 5
   forca_do_pulo: 0
@@ -854,6 +854,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7571352523862419710, guid: b9cfe3897c0c9174d92fc1cb0bafd323, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: cdf9c620098a61d4eabbc69eeea0f470, type: 2}
     - target: {fileID: 8135872300263077446, guid: b9cfe3897c0c9174d92fc1cb0bafd323, type: 3}
       propertyPath: m_Name
       value: inimigo
